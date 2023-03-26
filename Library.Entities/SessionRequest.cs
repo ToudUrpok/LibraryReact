@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Library.Entities
 {
     public class SessionRequest
     {
+        [Key]
+        public Guid Id { get; set; }
+
         public bool IsApproved { get; set; }
 
         public DateTime StartDate { get; set; }

@@ -15,8 +15,10 @@ namespace Library.Services
         public DbSet<Book> Books { get; set; }
         public DbSet<Copy> Copies { get; set; }
         public DbSet<Gender> Genders { get; set; }
+        public DbSet<SessionRequest> SessionRequests { get; set; }
+        public DbSet<Session> Sessions { get; set; }
 
-		public ApplicationDbContext(
+        public ApplicationDbContext(
 			DbContextOptions options,
 			IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
 		{
