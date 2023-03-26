@@ -10,23 +10,39 @@ namespace Library.Entities
 	// Add profile data for application users by adding properties to the ApplicationUser class
 	public class ApplicationUser : IdentityUser
 	{
-		[MaxLength(100)]
-		public string FirstName { get; set; }
-		[MaxLength(100)]
-		public string LastName { get; set; }
-		public bool ApplicationEditingAllowed { get; set; } = true;
-		public bool Approved { get; set; } = false;
+        [PersonalData]
+        [MaxLength(100)]
+        public string FirstName { get; set; }
 
-		[Timestamp]
-		public byte[] RowVersion { get; set; }
+        [PersonalData]
+        [MaxLength(100)]
+        public string MidName { get; set; }
 
-		[NotMapped]
-		public string FullName
-		{
-			get
-			{
-				return FirstName + " " + LastName;
-			}
-		}
+        [PersonalData]
+        [MaxLength(100)]
+        public string LastName { get; set; }
+
+        [PersonalData]
+        public DateTime DateOfBirth { get; set; }
+
+        [PersonalData]
+        [StringLength(14)]
+        public string IdentificationNumber { get; set; }
+
+        public bool ApplicationEditingAllowed { get; set; } = true;
+
+        public bool Approved { get; set; } = false;
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
+        [NotMapped]
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {MidName} {LastName}";
+            }
+        }
 	}
 }

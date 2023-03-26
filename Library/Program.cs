@@ -13,11 +13,10 @@ using Microsoft.AspNetCore.Identity;
 using static Library.Services.Helpers.RoleHelpers;
 using Library.Services.Helpers;
 using Microsoft.EntityFrameworkCore;
-
 namespace Library
 {
-	public class Program
-	{
+    public class Program
+    {
 		public static void Main(string[] args)
 		{
 			// CreateWebHostBuilder(args).Build().Run();
@@ -71,47 +70,22 @@ namespace Library
 					// Create admin user
 					ApplicationUser adminUser = new ApplicationUser
 					{
-						UserName = "admin@domain.com",
-						Email = "admin@domain.com",
-						FirstName = "AdminFirst",
-						LastName = "AdminLast",
-						EmailConfirmed = true,
+                        UserName = "admin@domain.com",
+                        Email = "admin@domain.com",
+                        FirstName = "Admin",
+                        MidName = "Admin",
+                        LastName = "Admin",
+                        DateOfBirth = new DateTime(1997, 3, 14),
+                        PhoneNumber = "+375299112600",
+                        IdentificationNumber = "5140397B013PB7",
+                        EmailConfirmed = true,
 						Approved = true
 					};
 
-					umService.AddUserAsync(adminUser, "admin", "administrator").Wait(); // username = "admin", password = "admin"
+                    umService.AddUserAsync(adminUser, "!Hga45dtrYu", "administrator").Wait();
 
 					UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 					userManager.AddToRoleAsync(adminUser, "user").Wait();
-
-					ApplicationUser supervisorUser = new ApplicationUser
-					{
-						UserName = "supervisor@domain.com",
-						Email = "supervisor@domain.com",
-						FirstName = "SupervisorFirst",
-						LastName = "SupervisorLast",
-						EmailConfirmed = true,
-						Approved = true
-					};
-
-					umService.AddUserAsync(supervisorUser, "supervisor", "supervisor").Wait();
-
-					ApplicationUser userUser = new ApplicationUser();
-
-					// Create users
-					for (int i = 1; i < 125; i++)
-					{
-						userUser = new ApplicationUser
-						{
-							UserName = "user" + i + "@domain.com",
-							Email = "user" + i + "@domain.com",
-							FirstName = "USER" + i + "FIRST",
-							LastName = "USER" + i + "LAST",
-							EmailConfirmed = true,
-							Approved = true
-						};
-						umService.AddUserAsync(userUser, "user", "user").Wait();
-					}
 				}
 			}
 		}

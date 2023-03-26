@@ -13,10 +13,10 @@ namespace Library.Helpers
 		public static List<CulturePair> CulturePairs = new List<CulturePair>()
 		{
             new CulturePair() { Code = "en", LocalName = "English" },
-            new CulturePair() { Code = "el", LocalName = "Ελληνικά" }
+            new CulturePair() { Code = "ru", LocalName = "Русский" }
 		};
 
-		public static string DefaultCulture = "el";
+		public static string DefaultCulture = "en";
 
 		public static List<CultureInfo> SupportedCultures
 		{

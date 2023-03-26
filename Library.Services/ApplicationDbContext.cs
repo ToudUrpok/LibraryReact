@@ -19,5 +19,13 @@ namespace Library.Services
 			IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
 		{
 		}
-	}
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<ApplicationUser>()
+                .HasIndex(u => u.IdentificationNumber)
+                .IsUnique();
+        }
+    }
 }

@@ -42,8 +42,8 @@ export class LanguageSelectPlain extends Component {
 					<DropdownItem onClick={this.handleLanguageChange.bind(this, "en")}>
 						English
 					</DropdownItem>
-					<DropdownItem onClick={this.handleLanguageChange.bind(this, "el")}>
-						Ελληνικά
+					<DropdownItem onClick={this.handleLanguageChange.bind(this, "ru")}>
+						Русский
 					</DropdownItem>
 				</DropdownMenu>
 			</UncontrolledDropdown>
