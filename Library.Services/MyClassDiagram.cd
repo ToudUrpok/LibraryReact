@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Library.Services.Helpers.DbContextExtension">
+    <Position X="2.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\DbContextExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Services.Helpers.RoleHelpers">
+    <Position X="2.75" Y="2" Width="1.75" />
+    <NestedTypes>
+      <Struct Name="Library.Services.Helpers.RoleHelpers.RolePair" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\RoleHelpers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\RoleHelpers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Services.HelperService" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HelperService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Services.UserManagementService" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgBQAAAAAARBAAAAQAAAAgEAABAAAACAAAAQQABAA=</HashCode>
+      <FileName>UserManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Library.Services.IHelperService">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHelperService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Library.Services.IUserManagementService">
+    <Position X="7" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQAAAAAARBAAAAQAAAAAEAABAAAACAAAAQQABAA=</HashCode>
+      <FileName>IUserManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Sergoe UI" Size="9" />
+</ClassDiagram>

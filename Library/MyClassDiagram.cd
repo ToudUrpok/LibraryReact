@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Library.Helpers.AutomapperProfiles">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Library.Helpers.AutomapperProfiles.UserProfile" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\AutomapperProfiles.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\AutomapperProfiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Helpers.Cultures">
+    <Position X="9.25" Y="0.5" Width="1.75" />
+    <NestedTypes>
+      <Struct Name="Library.Helpers.Cultures.CulturePair" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\Cultures.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAA=</HashCode>
+      <FileName>Helpers\Cultures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Helpers.ProfileService" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAEAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ProfileService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Library.Shared.SharedResources" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\SharedResources.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Controllers.ConfigController">
+    <Position X="7.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConfigController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Controllers.OidcConfigurationController">
+    <Position X="12.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\OidcConfigurationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Controllers.UsersController">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAQAABgAAAKAEAAAAAYAEAAAAAAAg=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Models.PageUsersModel">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PageUsersModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Models.PasswordChangeModel">
+    <Position X="7.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
+      <FileName>Models\PasswordChangeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Models.UserModel">
+    <Position X="13.5" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAEACACAAAAAAEAAABAAAAAAAAAACAAAAAAAAIAg=</HashCode>
+      <FileName>Models\UserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Models.UpdateUserModel">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEACACAAAAAAEAAABAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\UserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Program">
+    <Position X="9.25" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Startup">
+    <Position X="7.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Sergoe UI" Size="9" />
+</ClassDiagram>
