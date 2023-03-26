@@ -24,6 +24,12 @@ namespace Library.Entities
 
         public short Year { get; set; }
 
+        [StringLength(200)]
+        public string Authors { get; set; }
+
+        [StringLength(200)]
+        public string Genre { get; set; }
+
         [Required]
         public int Quantity { get; set; }
 
