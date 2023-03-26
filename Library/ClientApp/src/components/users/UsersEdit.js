@@ -49,15 +49,18 @@ class UsersEditPlain extends Component {
 			<AvForm model={user} onValidSubmit={this.handleValidSubmit}>
 				<AvField name="id" type="hidden" />
 				<AvField name="rowVersion" type="hidden" />
-				<AvField name="firstName" label={t('FirstName')} required errorMessage={t('FieldInvalid')} validate={{
-					required: { value: true, errorMessage: t('FieldRequired') },
-					minLength: { value: 2}
-				}} />
-				<AvField name="lastName" label="Last name" required />
-				<AvField name="email" type="email" label="Email" required />
+				{/*<AvField name="firstName" label={t('FirstName')} required errorMessage={t('FieldInvalid')} validate={{*/}
+				{/*	required: { value: true, errorMessage: t('FieldRequired') },*/}
+				{/*	minLength: { value: 2}*/}
+				{/*}} />*/}
+				{/*<AvField name="lastName" label="Last name" required />*/}
+				{/*<AvField name="email" type="email" label="Email" required />*/}
+				<AvField name="firstName" type="hidden" />
+				<AvField name="lastName" type="hidden" />
+				<AvField name="email" type="hidden" />
 				<AvField name="role" type="select" label="Role" required>
 					<option value="administrator">Administrator</option>
-					<option value="supervisor">Supervisor</option>
+					<option value="librarian">Librarian</option>
 					<option value="user">User</option>
 				</AvField>
 				<FormGroup>
