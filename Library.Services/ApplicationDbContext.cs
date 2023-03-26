@@ -12,7 +12,11 @@ namespace Library.Services
 {
 	public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
 	{
-		public DbSet<Gender> Genders { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Copy> Copies { get; set; }
+        public DbSet<Gender> Genders { get; set; }
 
 		public ApplicationDbContext(
 			DbContextOptions options,
