@@ -27,10 +27,6 @@ namespace Library.Entities
         [Required]
         public int Quantity { get; set; }
 
-        public List<Genre> Genres { get; set; }
-
-        public List<Author> Authors { get; set; }
-
-        public List<Copy> Copies { get; set; }
+        public ICollection<Copy> Copies { get; set; }
     }
 }

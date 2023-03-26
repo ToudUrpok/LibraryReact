@@ -6,9 +6,10 @@ namespace Library.Entities
     public class Copy
     {
         [Key]
-        public int InventoryNumber { get; set; }
+        public Guid InventoryNumber { get; set; }
 
-        public Guid BookId { get; set; }
-        public Book? Book { get; set; }
+        public bool IsAvailable { get; set; }
+
+        public Book Book { get; set; }
     }
 }

@@ -13,8 +13,6 @@ namespace Library.Services
 	public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
 	{
         public DbSet<Book> Books { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<Genre> Genres { get; set; }
         public DbSet<Copy> Copies { get; set; }
         public DbSet<Gender> Genders { get; set; }
 
@@ -27,9 +25,14 @@ namespace Library.Services
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             builder.Entity<ApplicationUser>()
                 .HasIndex(u => u.IdentificationNumber)
                 .IsUnique();
+
+            builder.Entity<Book>()
+                .HasMany(b => b.Copies)
+                .WithOne(c => c.Book);
         }
     }
 }
