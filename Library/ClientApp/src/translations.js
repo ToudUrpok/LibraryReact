@@ -8,7 +8,17 @@
 			"FieldInvalid": "The field is invalid!",
 			"FirstName": "First name",
 			"MidName": "Middle name",
-			"LastName": "Last name"
+			"LastName": "Last name",
+			"IdentificationNumber": "Identification Number",
+			"Phone": "Phone number",
+			"Email": "Email",
+			"Role": "Role",
+			"Password": "Password",
+			"ConfirmPassword": "ConfirmPassword",
+			"Administrator": "Administrator",
+			"Librarian": "Librarian",
+			"User": "User",
+			"SelectRole": "Select Role"
 		}
 	},
 	"ru": {
@@ -24,7 +34,17 @@
 			"FieldInvalid": "Некорректно зполненное поле!",
 			"FirstName": "Имя",
 			"MidName" : "Отчество",
-			"LastName" : "Фамилия"
+			"LastName": "Фамилия",
+			"IdentificationNumber": "Идентификационный номер",
+			"Phone": "Номер телефона",
+			"Email": "Электронная почта",
+			"Role": "Роль",
+			"Password": "Пароль",
+			"ConfirmPassword": "Подтвердить пароль",
+			"Administrator": "Администратор",
+			"Librarian": "Библиотекарь",
+			"User": "Пользователь",
+			"SelectRole": "Выберать роль"
 		}
 	}
 }

@@ -7,9 +7,9 @@ import { FormGroup, Form, Input, Button } from 'reactstrap';
 export class UsersList extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { users: [], page: 1, pageSize: 10, maxPages: 5, sortOrder: "Fname", searchString: "", loading: true };
+		this.state = { users: [], page: 1, pageSize: 10, maxPages: 5, sortOrder: "Lname", searchString: "", loading: true };
 	}
-
+		
 	componentDidMount() {
 		this.populateUserData();
 	}
@@ -24,10 +24,6 @@ export class UsersList extends Component {
 		let newSortOrder = this.state.sortOrder;
 
 		switch (header) {
-			case 'Fname': {
-				newSortOrder = this.state.sortOrder === 'Fname' ? 'Fname_desc' : 'Fname';
-				break;
-			}
 			case 'Lname': {
 				newSortOrder = this.state.sortOrder === 'Lname' ? 'Lname_desc' : 'Lname';
 				break;
@@ -69,20 +65,10 @@ export class UsersList extends Component {
 					<thead>
 						<tr>
 							<th>
-								Id
-							</th>
-							<th>
-								<a href="#" onClick={(e) => this.handleHeaderClick(e, 'Fname')} >
-									First Name
-									{sortOrder == 'Fname' && <span>&#8897;</span>}
-									{sortOrder == 'Fname_desc' && <span>&#8896;</span>}
-								</a>
-							</th>
-							<th>
 								<a href="#" onClick={(e) => this.handleHeaderClick(e, 'Lname')} >
-									Last Name
-									{sortOrder == 'Lname' && <span>&#8897;</span>}
-									{sortOrder == 'Lname_desc' && <span>&#8896;</span>}
+									Name
+									{sortOrder == 'Name' && <span>&#8897;</span>}
+									{sortOrder == 'Name_desc' && <span>&#8896;</span>}
 								</a>
 							</th>
 							<th>
@@ -92,6 +78,9 @@ export class UsersList extends Component {
 									{sortOrder == 'Email_desc' && <span>&#8896;</span>}
 								</a>
 							</th>
+							<th>
+								Role
+							</th>
 							<th />
 							<th />
 							<th />
@@ -100,10 +89,9 @@ export class UsersList extends Component {
 					<tbody>
 						{users.map(user =>
 							<tr key={user.id}>
-								<td>{user.id}</td>
-								<td>{user.firstName}</td>
-								<td>{user.lastName}</td>
+								<td>{user.lastName} {user.firstName} {user.midName}</td>
 								<td>{user.email}</td>
+								<td>{user.role}</td>
 								<td><Link to={'/users/delete/' + user.id}>Delete</Link></td>
 								<td><Link to={'/users/edit/' + user.id}>Edit</Link></td>
 								<td><Link to={'/users/password-change/' + user.id}>Change Password</Link></td>
