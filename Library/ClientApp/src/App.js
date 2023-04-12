@@ -8,6 +8,7 @@ import { UsersRouter } from './components/users/UsersRouter';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
+import { BooksList } from './components/books/BooksList';
 
 
 import './custom.css'
@@ -19,7 +20,7 @@ export default class App extends Component {
 		return (
 			<Layout>
 				<Route exact path='/' component={Home} />
-				{/*<Route path='/counter' component={Counter} />*/}
+				<AuthorizeRoute path='/books' component={BooksList} />
 				<AuthorizeRoute path='/fetch-data' component={FetchData} />
 				<AuthorizeRoute path='/users' component={UsersRouter} />
 				<Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />

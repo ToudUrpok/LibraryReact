@@ -18,7 +18,8 @@
 			"Administrator": "Administrator",
 			"Librarian": "Librarian",
 			"User": "User",
-			"SelectRole": "Select Role"
+			"SelectRole": "Select Role",
+			"Books": "Books"
 		}
 	},
 	"ru": {
@@ -44,7 +45,8 @@
 			"Administrator": "Администратор",
 			"Librarian": "Библиотекарь",
 			"User": "Пользователь",
-			"SelectRole": "Выберать роль"
+			"SelectRole": "Выберать роль",
+			"Books": "Книги"
 		}
 	}
 }

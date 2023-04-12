@@ -17,33 +17,92 @@ using Microsoft.Extensions.Logging;
 
 namespace Library.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BooksController : Controller
     {
         private readonly ILogger<BooksController> _logger;
         private readonly IConfiguration _configuration;
-        private readonly IUserManagementService _umService;
+        private readonly IBookManagementService _bmService;
         private readonly IMapper _mapper;
         private readonly IHelperService _helperService;
 
         public BooksController(
             IConfiguration configuration,
             ILogger<BooksController> logger,
-            IUserManagementService umService,
+            IBookManagementService bmService,
             IMapper mapper,
             IHelperService helperService)
         {
             _configuration = configuration;
             _logger = logger;
-            _umService = umService;
+            _bmService = bmService;
             _mapper = mapper;
             _helperService = helperService;
         }
-        // GET: BooksController
-        public ActionResult Index()
+
+        [HttpGet]
+        public async Task<ActionResult<PageBookModel>> Get(int? offset, int? limit, string sortOrder, string searchString)
         {
-            return View();
+            PageBookModel model = new PageBookModel();
+            List<BookModel> books = new List<BookModel>()
+            {
+                new BookModel()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Idiot",
+                    ISBN = "9780733426094",
+                    Authors = "Fiodor Michailovich Dostoevskii",
+                    Genre = "Novel",
+                    Year = 2005,
+                    Quantity = 0
+                },
+                new BookModel()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Steps",
+                    ISBN = "9780733426095",
+                    Authors = "Test Author Name",
+                    Genre = "Poem",
+                    Year = 2003,
+                    Quantity = 0
+                },
+                new BookModel()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Cars",
+                    ISBN = "9780733426096",
+                    Authors = "Test Author Name2",
+                    Genre = "Detective story",
+                    Year = 2003,
+                    Quantity = 0
+                },
+                new BookModel()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Bikes",
+                    ISBN = "9780733426097",
+                    Authors = "Test Author Name3",
+                    Genre = "Encyclopedia",
+                    Year = 2003,
+                    Quantity = 0
+                },
+                new BookModel()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Cooking",
+                    ISBN = "9780733426098",
+                    Authors = "Test Author Name4",
+                    Genre = "Culinary",
+                    Year = 2003,
+                    Quantity = 0
+                }
+            };
+            model.Books = books;
+            model.TotalBooks = books.Count;
+
+            return model;
         }
 
         // GET: BooksController/Details/5
@@ -58,18 +117,30 @@ namespace Library.Controllers
             return View();
         }
 
-        // POST: BooksController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult<BookModel>> Post(BookModel bookModel)
         {
-            try
+            if (!ModelState.IsValid) // Is automatically done by the [ApiController] controller attribute
+                return BadRequest(ModelState);
+
+            if (await _bmService.IsBookExistsAsync(bookModel.ISBN, bookModel.Name, bookModel.Authors, bookModel.Year))
             {
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("Failure", "Book already exists");
+                return BadRequest(ModelState);
             }
-            catch
+
+            Book book = _mapper.Map<Book>(bookModel);
+            Book result = await _bmService.AddBookAsync(book);
+
+            if (result != null)
             {
-                return View();
+                return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
+            }
+            else
+            {
+                ModelState.AddModelError("Failure", "Book creation failed");
+                return BadRequest(ModelState);
             }
         }
 

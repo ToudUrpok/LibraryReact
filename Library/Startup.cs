@@ -136,7 +136,8 @@ namespace Library
 
 			services.AddScoped<IUserManagementService, UserManagementService>();
 			services.AddScoped<IHelperService, HelperService>();
-		}
+            services.AddScoped<IBookManagementService, BookManagementService>();
+        }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
