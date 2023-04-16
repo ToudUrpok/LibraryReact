@@ -106,7 +106,6 @@ export class BooksService {
 			console.log(error);
 			throw error;
 		}
-
 	}
 
 	async updateBook(bookId, book) {	//bookId ?

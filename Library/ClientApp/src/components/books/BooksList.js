@@ -7,7 +7,7 @@ import { FormGroup, Form, Input, Button } from 'reactstrap';
 export class BooksList extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { books: [], page: 1, pageSize: 15, maxPages: 5, sortOrder: "Name", searchString: "", loading: true };
+		this.state = { books: [], page: 1, pageSize: 10, maxPages: 5, sortOrder: "Name", searchString: "", loading: true };
 	}
 
 	componentDidMount() {

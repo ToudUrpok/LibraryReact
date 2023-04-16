@@ -19,7 +19,15 @@
 			"Librarian": "Librarian",
 			"User": "User",
 			"SelectRole": "Select Role",
-			"Books": "Books"
+			"Books": "Books",
+			"Save": "Save",
+			"Cancel": "Cancel",
+			"BookName": "Name",
+			"ISBN": "ISBN",
+			"Authors": "Authors",
+			"Genre": "Genre",
+			"PublishingYear": "Publishing year",
+			"Quantity": "Quantity"
 		}
 	},
 	"ru": {
@@ -46,7 +54,15 @@
 			"Librarian": "Библиотекарь",
 			"User": "Пользователь",
 			"SelectRole": "Выберать роль",
-			"Books": "Книги"
+			"Books": "Книги",
+			"Save": "Сохранить",
+			"Cancel": "Отменить",
+			"BookName": "Название",
+			"ISBN": "ISBN",
+			"Authors": "Авторы",
+			"Genre": "Жанр",
+			"PublishingYear": "Год публикации",
+			"Quantity": "Количество"
 		}
 	}
 }

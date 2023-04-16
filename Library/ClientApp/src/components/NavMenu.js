@@ -55,9 +55,6 @@ class NavMenuPlain extends Component {
 								<NavItem>
 									<NavLink tag={Link} className="text-dark" to="/books">{t('Books')}</NavLink>
 								</NavItem>
-								<NavItem>
-									<NavLink tag={Link} className="text-dark" to="/fetch-data">{t('Fetch data')}</NavLink>
-								</NavItem>
 								{
 									this.state.hasAdminRole &&
 									<NavItem>
