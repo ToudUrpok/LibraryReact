@@ -52,9 +52,12 @@ class NavMenuPlain extends Component {
 								<NavItem>
 									<NavLink tag={Link} className="text-dark" to="/">{t('Home')}</NavLink>
 								</NavItem>
-								<NavItem>
-									<NavLink tag={Link} className="text-dark" to="/books">{t('Books')}</NavLink>
-								</NavItem>
+								{
+									this.state.hasAdminRole &&
+									<NavItem>
+										<NavLink tag={Link} className="text-dark" to="/books">{t('Books')}</NavLink>
+									</NavItem>
+								}
 								{
 									this.state.hasAdminRole &&
 									<NavItem>

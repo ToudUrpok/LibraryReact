@@ -17,7 +17,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Library.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BooksController : Controller
@@ -43,6 +42,7 @@ namespace Library.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<PageBookModel>> Get(int? offset, int? limit, string sortOrder, string searchString)
         {
             PageBookModel model = new PageBookModel();
@@ -69,8 +69,8 @@ namespace Library.Controllers
             return model;
         }
 
-
         [HttpPost]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<BookModel>> Post(BookModel bookModel)
         {
             if (!ModelState.IsValid) // Is automatically done by the [ApiController] controller attribute
@@ -97,12 +97,12 @@ namespace Library.Controllers
             book.Year = year;
             book.ISBN = bookModel.ISBN;
 
-
             Book result = await _bmService.AddBookAsync(book);
 
             if (result != null)
             {
-                return CreatedAtAction(nameof(Post), new { id = result.Id }, result);
+                bookModel.Id = result.Id;
+                return CreatedAtAction(nameof(Post), new { id = bookModel.Id }, bookModel);
             }
             else
             {

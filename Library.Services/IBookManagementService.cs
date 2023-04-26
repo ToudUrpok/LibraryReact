@@ -14,5 +14,7 @@ namespace Library.Services
         Task<Book> AddBookAsync(Book book);
         Task<Book> UpdateBookAsync(Book book);
         Task<bool> IsBookExistsAsync(string isbn, string name, string authors, short year);
+        Task<List<Copy>> AddBookCopiesAsync(Book book, int quantity);
+        Task<bool> IsBookAvailableAsync(Book book);
     }
 }

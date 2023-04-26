@@ -35,6 +35,31 @@ export class BooksService {
 		}
 	}
 
+	async getBookItems(page, pageSize, sortOrder, searchString) {
+		const offset = (page - 1) * pageSize;
+
+		// Taken from here: https://fetch.spec.whatwg.org/#fetch-api
+		let url = "api/home?" + "offset=" + offset + "&limit=" + pageSize + "&sortOrder=" + sortOrder;
+		if (searchString !== "")
+			url += "&searchString=" + encodeURIComponent(searchString);
+
+		try {
+			const response = await fetch(url);
+
+			if (response.ok) {
+				const jsonData = await response.json();
+				return jsonData;
+			}
+			else {
+				throw new Error("HTTP error! Code: " + response.status);
+			}
+		}
+		catch (error) {
+			console.log(error);
+			throw error;
+		}
+	}
+
 	//async deleteUser(userId) {
 	//	const token = await authService.getAccessToken();
 
@@ -132,6 +157,10 @@ export class BooksService {
 			console.log(error);
 			throw error;
 		}
+	}
+
+	async book(bookId) {
+		//
 	}
 
 	static get instance() { return booksService; }

@@ -8,4 +8,11 @@ namespace Library.Models
         public List<BookModel> Books { get; set; }
             = new List<BookModel>();
     }
+
+    public class PageBookItemModel
+    {
+        public int TotalBookItems { get; set; }
+        public List<BookItemModel> BookItems { get; set; }
+            = new List<BookItemModel>();
+    }
 }

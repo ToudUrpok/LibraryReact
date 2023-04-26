@@ -39,6 +39,6 @@ export const ApplicationPaths = {
 
 export const UserRoles = {
 	Administrator: 'administrator',
-	Supervisor: 'supervisor',
+	Librarian: 'librarian',
 	User: 'user'
 };

@@ -79,12 +79,16 @@ namespace Library.Services
             if (IsBookExistsInternal(book.ISBN, book.Name, book.Authors, book.Year))
             {
                 return null;
-                    //IdentityResult.Failed(new IdentityError() { Description = "This book already exists!" });
             }
 
             var result = await _context.Books.AddAsync(book);
 
             await _context.SaveChangesAsync();
+
+            if (book.Quantity > 0)
+            {
+                await AddBookCopiesAsync(result.Entity, result.Entity.Quantity);
+            }
 
             return result.Entity;
         }
@@ -118,6 +122,31 @@ namespace Library.Services
         public async Task<bool> IsBookExistsAsync(string isbn, string name, string authors, short year)
         {
             return IsBookExistsInternal(isbn, name, authors, year);
+        }
+
+        public async Task<List<Copy>> AddBookCopiesAsync(Book book, int quantity)
+        {
+            List<Copy> result = new List<Copy>();
+
+            for (int i = 0; i < quantity; i++)
+            {
+                var copy = new Copy()
+                {
+                    Book = book,
+                    IsAvailable = true
+                };
+
+                var copyEntry = await _context.Copies.AddAsync(copy);
+                result.Add(copyEntry.Entity);
+            }
+
+            await _context.SaveChangesAsync();
+            return result;
+        }
+
+        public async Task<bool> IsBookAvailableAsync(Book book)
+        {
+            return _context.Copies.Where(c => c.Book.Id == book.Id && c.IsAvailable).Any();
         }
 
         private bool IsBookExistsInternal(string isbn, string name, string authors, short year)

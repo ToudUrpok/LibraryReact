@@ -37,9 +37,9 @@ export class AuthorizeService {
 
 		if (user) {
 			if (user.role instanceof Array) // if it has many roles role is an array
-				return user.role.includes(UserRoles.Administrator); // beware that UserRoles apears as undefined when debugging, though it works fine
+				return user.role.includes(role);
 			else // otherwise it is a string
-				return user.role == UserRoles.Administrator;
+				return user.role == role;
 		}
 		else
 			return false;

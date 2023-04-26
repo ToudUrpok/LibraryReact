@@ -27,7 +27,17 @@
 			"Authors": "Authors",
 			"Genre": "Genre",
 			"PublishingYear": "Publishing year",
-			"Quantity": "Quantity"
+			"Quantity": "Quantity",
+			"Book": "book",
+			"IsAvailable": "Is available",
+			"Loading": "Loading...",
+			"SearchBook": "Search book:",
+			"SearchPlaceholder": "Search by Name, Author or Genre",
+			"Search": "Search",
+			"Reset": "Reset",
+			"Confirm": "Confirm",
+			"SessionModalHeader": "Booking confirmation",
+			"ModalBodyText": "Please, confirm your booking. Deadline for issuing books - 15 days."
 		}
 	},
 	"ru": {
@@ -62,7 +72,17 @@
 			"Authors": "Авторы",
 			"Genre": "Жанр",
 			"PublishingYear": "Год публикации",
-			"Quantity": "Количество"
+			"Quantity": "Количество",
+			"Book": "забронировать",
+			"IsAvailable": "Доступна",
+			"Loading": "Загрузка...",
+			"SearchBook": "Искать книгу:",
+			"SearchPlaceholder": "Поиск по Названию, Автору или Жанру",
+			"Search": "Искать",
+			"Reset": "Сбросить",
+			"Confirm": "Подтвердить",
+			"SessionModalHeader": "Подтверждение бронирования",
+			"ModalBodyText": "Пожалуйста, подтвердите бронь книги. Срок выдачи книг - 15 дней."
 		}
 	}
 }

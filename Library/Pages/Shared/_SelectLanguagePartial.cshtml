@@ -19,7 +19,6 @@
 <form id="selectLanguage" asp-area="" asp-controller="Config"
 		asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
 		method="post" class="form-inline my-2 my-lg-2">
-		@SharedLocalizer["Language"]:
 	<select name="culture" onchange="this.form.submit();" class="form-control"
 			asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
 	</select>
