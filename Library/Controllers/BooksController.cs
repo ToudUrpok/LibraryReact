@@ -69,6 +69,31 @@ namespace Library.Controllers
             return model;
         }
 
+        // GET: api/books/5
+        // [HttpGet("{id}"), Name = "Get"]
+        [HttpGet("{id}")]
+        [Authorize(Policy = "IsAdmin")]
+        public async Task<ActionResult<BookModel>> Get(string id)
+        {
+            var book = await _bmService.FindBookAsync(id);
+
+            if (book == null)
+                return NotFound();
+
+            BookModel model = new BookModel
+            {
+                Id = book.Id,
+                Name = book.Name,
+                Authors = book.Authors,
+                ISBN = book.ISBN,
+                Genre = book.Genre,
+                Year = book.Year.ToString(),
+                Quantity = book.Quantity.ToString()
+            };
+
+            return model;
+        }
+
         [HttpPost]
         [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<BookModel>> Post(BookModel bookModel)
@@ -109,6 +134,64 @@ namespace Library.Controllers
                 ModelState.AddModelError("Failure", "Book creation failed");
                 return BadRequest(ModelState);
             }
+        }
+
+        // PUT: api/books/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, BookModel bookModel)
+        {
+            if (id != bookModel.Id.ToString() || !ModelState.IsValid)
+                return BadRequest();
+
+            var book = await _bmService.FindBookAsync(id);
+
+            if (book == null)
+                return NotFound();
+
+            short year;
+            if (!Int16.TryParse(bookModel.Year, out year))
+            {
+                return BadRequest("Invalid Year value!");
+            }
+
+            bool isUpdated = false;
+
+            if (book.Name != bookModel.Name)
+            {
+                isUpdated = true;
+                book.Name = bookModel.Name;
+            }
+
+            if (book.ISBN != bookModel.ISBN)
+            {
+                isUpdated = true;
+                book.ISBN = bookModel.ISBN;
+            }
+
+            if (book.Authors != bookModel.Authors)
+            {
+                isUpdated = true;
+                book.Authors = bookModel.Authors;
+            }
+
+            if (book.Genre != bookModel.Genre)
+            {
+                isUpdated = true;
+                book.Genre = bookModel.Genre;
+            }
+            
+            if (book.Year != year)
+            {
+                isUpdated = true;
+                book.Year = year;
+            }
+
+            if (isUpdated)
+            {
+                _bmService.UpdateBookAsync(book);
+            }
+
+            return NoContent();
         }
     }
 }
