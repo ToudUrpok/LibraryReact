@@ -51,7 +51,7 @@ class LoginMenuPlain extends Component {
         return (<Fragment>
             <NavItem>
 				<NavLink tag={Link} className="text-dark" to={profilePath}>
-					{t('Hello')} {userName}
+                    {t('Profile')}
 				</NavLink>
             </NavItem>
             <NavItem>

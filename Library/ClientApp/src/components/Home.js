@@ -25,9 +25,9 @@ export class HomePlain extends Component {
 
 	async populateState() {
 		const isAuthenticated = await authService.isAuthenticated();
-		const hasAdminRole = false;
-		const hasLibrarianRole = false;
-		const hasUserRole = false;
+		var hasAdminRole = false;
+		var hasLibrarianRole = false;
+		var hasUserRole = false;
 
 		if (isAuthenticated) {
 			hasAdminRole = await authService.hasRole(UserRoles.Administrator);
@@ -51,16 +51,17 @@ export class HomePlain extends Component {
 					(!this.state.isAuthenticated ||  this.state.hasUserRole) &&
 					<BookItemsList />
 				}
-				{
-					this.state.hasAdminRole &&
-					<div>
-						<h1>Admin home page</h1>
-					</div>
-				}
+				{/*{*/}
+				{/*	this.state.hasAdminRole &&*/}
+				{/*	<div>*/}
+				{/*		<h1>Admin home page</h1>*/}
+				{/*	</div>*/}
+				{/*}*/}
 				{
 					this.state.hasLibrarianRole &&
 					<div>
-						<h1>Librarian home page</h1>
+							<h1>Librarian home page</h1>
+							<BookItemsList />
 					</div>
 				}
 			</div>
