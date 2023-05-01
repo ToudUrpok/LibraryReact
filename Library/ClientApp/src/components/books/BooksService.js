@@ -159,10 +159,6 @@ export class BooksService {
 		}
 	}
 
-	async book(bookId) {
-		//
-	}
-
 	static get instance() { return booksService; }
 }
 

@@ -51,12 +51,13 @@ export class HomePlain extends Component {
 					(!this.state.isAuthenticated ||  this.state.hasUserRole) &&
 					<BookItemsList />
 				}
-				{/*{*/}
-				{/*	this.state.hasAdminRole &&*/}
-				{/*	<div>*/}
-				{/*		<h1>Admin home page</h1>*/}
-				{/*	</div>*/}
-				{/*}*/}
+				{
+					this.state.hasAdminRole &&
+					<div>
+							<h1>Admin home page</h1>
+							<BookItemsList />
+					</div>
+				}
 				{
 					this.state.hasLibrarianRole &&
 					<div>

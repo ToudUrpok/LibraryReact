@@ -70,23 +70,23 @@ namespace Library
 					// Create admin user
 					ApplicationUser adminUser = new ApplicationUser
 					{
-                        UserName = "admin@domain.com",
-                        Email = "admin@domain.com",
-                        FirstName = "Admin",
-                        MidName = "Admin",
-                        LastName = "Admin",
-                        DateOfBirth = new DateTime(1997, 3, 14),
-                        PhoneNumber = "+375299112600",
-                        IdentificationNumber = "5140397B013PB7",
-                        EmailConfirmed = true,
+						UserName = "admin@domain.com",
+						Email = "admin@domain.com",
+						FirstName = "Admin",
+						MidName = "Admin",
+						LastName = "Admin",
+						DateOfBirth = new DateTime(1997, 3, 14),
+						PhoneNumber = "+375299112600",
+						IdentificationNumber = "5140397B013PB7",
+						EmailConfirmed = true,
 						Approved = true
 					};
 
-                    umService.AddUserAsync(adminUser, "!Hga45dtrYu", "administrator").Wait();
+					umService.AddUserAsync(adminUser, "!Hga45dtrYu", "administrator").Wait();
 
-					UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-					userManager.AddToRoleAsync(adminUser, "user").Wait();
-				}
+					//UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+					//userManager.AddToRoleAsync(adminUser, "user").Wait();
+                }
 			}
 		}
 	}

@@ -37,7 +37,9 @@
 			"Reset": "Reset",
 			"Confirm": "Confirm",
 			"SessionModalHeader": "Booking confirmation",
-			"ModalBodyText": "Please, confirm your booking. Deadline for issuing books - 15 days."
+			"ModalBodyText": "Please, confirm your booking. Deadline for issuing books - 15 days.",
+			"Profile": "Profile",
+			"Сatalog": "Сatalog"
 		}
 	},
 	"ru": {
@@ -82,7 +84,9 @@
 			"Reset": "Сбросить",
 			"Confirm": "Подтвердить",
 			"SessionModalHeader": "Подтверждение бронирования",
-			"ModalBodyText": "Пожалуйста, подтвердите бронь книги. Срок выдачи книг - 15 дней."
+			"ModalBodyText": "Пожалуйста, подтвердите бронь книги. Срок выдачи книг - 15 дней.",
+			"Profile": "Профиль",
+			"Сatalog": "Каталог"
 		}
 	}
 }

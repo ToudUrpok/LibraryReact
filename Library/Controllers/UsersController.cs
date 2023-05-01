@@ -116,6 +116,12 @@ namespace Library.Controllers
 			if (user == null)
 				return NotFound();
 
+			var role = await _umService.GetUserRoleAsync(user.Id, true);
+            if (role == "administrator")
+			{
+				userModel.Role = role;
+			}
+
 			if (await _umService.IsEmailInUseAsync(userModel.Email, userModel.Id))
 			{
 				ModelState.AddModelError("Email", "Email already in use");
@@ -150,7 +156,13 @@ namespace Library.Controllers
 		[HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-			var result = await _umService.DeleteUserAsync(id);
+            var role = await _umService.GetUserRoleAsync(id, true);
+            if (role == "administrator")
+            {
+                return NoContent();
+            }
+
+            var result = await _umService.DeleteUserAsync(id);
 
 			if (result.Succeeded)
 				return NoContent();

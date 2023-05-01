@@ -92,8 +92,8 @@ export class UsersList extends Component {
 								<td>{user.lastName} {user.firstName} {user.midName}</td>
 								<td>{user.email}</td>
 								<td>{user.role}</td>
-								<td><Link to={'/users/delete/' + user.id}>Delete</Link></td>
-								<td><Link to={'/users/edit/' + user.id}>Edit</Link></td>
+								<td>{user.role.toLowerCase() !== 'administrator' ? <Link to={'/users/delete/' + user.id}>Delete</Link> : ""}</td>
+								<td>{user.role.toLowerCase() !== 'administrator' ? <Link to={'/users/edit/' + user.id}>Edit</Link> : ""}</td>
 								<td><Link to={'/users/password-change/' + user.id}>Change Password</Link></td>
 							</tr>
 						)}

@@ -7,8 +7,6 @@ import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 import { BooksRouter } from './components/books/BooksRouter';
-
-
 import './custom.css'
 
 export default class App extends Component {
@@ -18,6 +16,7 @@ export default class App extends Component {
 		return (
 			<Layout>
 				<Route exact path='/' component={Home} />
+				{/*<AuthorizeRoute path='/sessions' component={SessionsRouter} />*/}
 				<AuthorizeRoute path='/books' component={BooksRouter} />
 				<AuthorizeRoute path='/users' component={UsersRouter} />
 				<Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />

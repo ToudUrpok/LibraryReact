@@ -17,6 +17,7 @@ class NavMenuPlain extends Component {
 		this.toggleNavbar = this.toggleNavbar.bind(this);
 		this.state = {
 			hasAdminRole: false,
+			hasLibrarianRole: false,
 			collapsed: true
 		};
 	}
@@ -28,8 +29,10 @@ class NavMenuPlain extends Component {
 
 	async populateState() {
 		const hasAdminRole = await authService.hasRole(UserRoles.Administrator);
+		const hasLibrarianRole = await authService.hasRole(UserRoles.Librarian);
 		this.setState({
-			hasAdminRole
+			hasAdminRole,
+			hasLibrarianRole
 		});
 	}
 
@@ -52,6 +55,12 @@ class NavMenuPlain extends Component {
 								<NavItem>
 									<NavLink tag={Link} className="text-dark" to="/">{t('Home')}</NavLink>
 								</NavItem>
+								{/*{*/}
+								{/*	this.state.hasLibrarianRole &&*/}
+								{/*	<NavItem>*/}
+								{/*		<NavLink tag={Link} className="text-dark" to="/sessions">{t('Librarian')}</NavLink>*/}
+								{/*	</NavItem>*/}
+								{/*}*/}
 								{
 									this.state.hasAdminRole &&
 									<NavItem>
