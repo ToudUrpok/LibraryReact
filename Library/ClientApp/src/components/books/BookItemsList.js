@@ -6,6 +6,8 @@ import { FormGroup, Form, Input, Button } from 'reactstrap';
 import { withTranslation } from 'react-i18next';
 import sessionsService from '../sessions/SessionsService';
 import { SessionRequestCreateModal } from '../sessions/SessionRequestCreateModal';
+import authService from '../api-authorization/AuthorizeService'
+import { UserRoles } from '../api-authorization/ApiAuthorizationConstants';
 
 class BookItemsListPlain extends Component {
 	constructor(props) {
@@ -17,12 +19,21 @@ class BookItemsListPlain extends Component {
 			maxPages: 5,
 			sortOrder: "Name",
 			searchString: "",
-			loading: true
+			loading: true,
+			hasUserRole: false
 		};
 	}
 
 	componentDidMount() {
+		this._subscription = authService.subscribe(() => this.populateState());
+		this.populateState();
 		this.populateBooksData();
+	}
+
+	async populateState() {
+		const hasUserRoleValue = await authService.hasRole(UserRoles.User);;
+
+		this.setState({ ...this.state, hasUserRole: hasUserRoleValue });
 	}
 
 	handlePageChange = (page) => {
@@ -114,7 +125,7 @@ class BookItemsListPlain extends Component {
 								<td>{book.genre}</td>
 								<td>{book.year}</td>
 								<td>{book.isbn}</td>
-								<td>{book.isAvailable ? <Link to={'/sessions/request/add/' + book.id}>{t('Book')}</Link> : ""}</td>
+								<td>{ this.state.hasUserRole && book.isAvailable ? <Link to={'/sessions/request/add/' + book.id}>{t('Book')}</Link> : ""}</td>
 							</tr>
 						)}
 					</tbody>

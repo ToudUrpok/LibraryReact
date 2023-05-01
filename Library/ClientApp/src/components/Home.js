@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BookItemsList } from './books/BookItemsList';
-import authService from './api-authorization/AuthorizeService'
-import { UserRoles } from './api-authorization/ApiAuthorizationConstants';
+//import authService from './api-authorization/AuthorizeService'
+//import { UserRoles } from './api-authorization/ApiAuthorizationConstants';
 import { withTranslation } from 'react-i18next';
 
 export class HomePlain extends Component {
@@ -10,61 +10,62 @@ export class HomePlain extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			isAuthenticated: false,
-			hasAdminRole: false,
-			hasLibrarianRole: false,
-			hasUserRole: false
-		};
+		//this.state = {
+		//	isAuthenticated: false,
+		//	hasAdminRole: false,
+		//	hasLibrarianRole: false,
+		//	hasUserRole: false
+		//};
 	}
 
 	componentDidMount() {
-		this._subscription = authService.subscribe(() => this.populateState());
-		this.populateState();
+		//this._subscription = authService.subscribe(() => this.populateState());
+		//this.populateState();
 	}
 
-	async populateState() {
-		const isAuthenticated = await authService.isAuthenticated();
-		var hasAdminRole = false;
-		var hasLibrarianRole = false;
-		var hasUserRole = false;
+	//async populateState() {
+	//	const isAuthenticated = await authService.isAuthenticated();
+	//	var hasAdminRole = false;
+	//	var hasLibrarianRole = false;
+	//	var hasUserRole = false;
 
-		if (isAuthenticated) {
-			hasAdminRole = await authService.hasRole(UserRoles.Administrator);
-			hasLibrarianRole = await authService.hasRole(UserRoles.Librarian);
-			hasUserRole = await authService.hasRole(UserRoles.User);
-		}
+	//	if (isAuthenticated) {
+	//		hasAdminRole = await authService.hasRole(UserRoles.Administrator);
+	//		hasLibrarianRole = await authService.hasRole(UserRoles.Librarian);
+	//		hasUserRole = await authService.hasRole(UserRoles.User);
+	//	}
 
-		this.setState({
-			isAuthenticated,
-			hasAdminRole,
-			hasLibrarianRole,
-			hasUserRole
-		});
-	}
+	//	this.setState({
+	//		isAuthenticated,
+	//		hasAdminRole,
+	//		hasLibrarianRole,
+	//		hasUserRole
+	//	});
+	//}
 
 	render() {
 		const { t, i18n } = this.props;
 		return (
 			<div>
-				{
-					(!this.state.isAuthenticated ||  this.state.hasUserRole) &&
-					<BookItemsList />
-				}
-				{
-					this.state.hasAdminRole &&
-					<div>
-							<h1>Admin home page</h1>
-							<BookItemsList />
-					</div>
-				}
-				{
-					this.state.hasLibrarianRole &&
-					<div>
-							<h1>Librarian home page</h1>
-							<BookItemsList />
-					</div>
-				}
+				{/*{*/}
+				{/*	(!this.state.isAuthenticated ||  this.state.hasUserRole) &&*/}
+				{/*	<BookItemsList />*/}
+				{/*}*/}
+				{/*{*/}
+				{/*	this.state.hasAdminRole &&*/}
+				{/*	<div>*/}
+				{/*			<h1>Admin home page</h1>*/}
+				{/*			<BookItemsList />*/}
+				{/*	</div>*/}
+				{/*}*/}
+				{/*{*/}
+				{/*	this.state.hasLibrarianRole &&*/}
+				{/*	<div>*/}
+				{/*			<h1>Librarian home page</h1>*/}
+				{/*			<BookItemsList />*/}
+				{/*	</div>*/}
+				{/*}*/}
+				<BookItemsList />
 			</div>
 		);
 	}
